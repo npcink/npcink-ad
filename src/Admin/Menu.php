@@ -47,8 +47,7 @@ final class Menu {
 			'manage_npcink_ads',
 			$promotions_url,
 			'',
-			'dashicons-megaphone',
-			25
+			'dashicons-megaphone'
 		);
 
 		add_submenu_page(

@@ -4,7 +4,7 @@ Tags: promotion, advertising, marketing, blocks, announcements
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.3.3
+Stable tag: 0.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,11 @@ The JavaScript and CSS files in `build/` are generated with Node.js 20 and pnpm 
 Composer dependencies are development-only quality tools and are not bundled in the release package.
 
 == Changelog ==
+
+= 0.3.4 =
+
+* Package WordPress.org translations through the directory language-pack service instead of the plugin ZIP.
+* Let WordPress place the Npcink Ad top-level admin menu after existing menus instead of reserving a high core-menu position.
 
 = 0.3.3 =
 

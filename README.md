@@ -1,8 +1,8 @@
 # Npcink Ad
 
-Npcink Ad 0.3.3 是一个 WordPress 原生、隐私优先的站内推广发布工具。核心流程只有一条：**创建推广内容 → 设置展示规则 → 在真实页面预览运行结论 → 发布或暂停**。
+Npcink Ad 0.3.4 是一个 WordPress 原生、隐私优先的站内推广发布工具。核心流程只有一条：**创建推广内容 → 设置展示规则 → 在真实页面预览运行结论 → 发布或暂停**。
 
-> 0.3.3 延续全新的 pre-GA 契约，不提供旧开发数据、API、区块或存储标识的兼容层。
+> 0.3.4 延续全新的 pre-GA 契约，不提供旧开发数据、API、区块或存储标识的兼容层。
 
 ## 产品边界
 
@@ -22,13 +22,13 @@ Npcink Ad 0.3.3 是一个 WordPress 原生、隐私优先的站内推广发布�
 - 管理 REST 需要 `manage_npcink_ads`；插件激活时把该能力授予 administrator 和 editor。
 - 默认没有追踪请求、访客 Cookie、自定义表、统计队列或必需的前端 JavaScript。
 
-产品取舍见 [产品契约](docs/product-contract.md)，数据模型见 [ADR 003](docs/decisions/003-single-promotion-record.md)，手动入口与设备边界见 [ADR 008](docs/decisions/008-manual-placement-and-device-guidance.md)，视频素材边界见 [ADR 010](docs/decisions/010-site-controlled-video-creative.md)，横栏边界见 [ADR 011](docs/decisions/011-bounded-page-bar-delivery.md)，安全复制边界见 [ADR 012](docs/decisions/012-safe-promotion-duplication.md)，排程暂停边界见 [ADR 013](docs/decisions/013-pause-scheduled-promotions.md)，模块边界见 [架构总览](docs/architecture-overview.md)，项目演进、经验和纠偏见 [项目历史与开发复盘](docs/PROJECT-HISTORY.zh-CN.md)，真实用户验收方法见 [首次成功投放试用协议](docs/first-promotion-pilot.md)，0.3.2 的 WordPress.org 首发边界和硬门禁见 [发布候选就绪记录](docs/0.3.2-wordpress-org-release-readiness.md)。
+产品取舍见 [产品契约](docs/product-contract.md)，数据模型见 [ADR 003](docs/decisions/003-single-promotion-record.md)，手动入口与设备边界见 [ADR 008](docs/decisions/008-manual-placement-and-device-guidance.md)，视频素材边界见 [ADR 010](docs/decisions/010-site-controlled-video-creative.md)，横栏边界见 [ADR 011](docs/decisions/011-bounded-page-bar-delivery.md)，安全复制边界见 [ADR 012](docs/decisions/012-safe-promotion-duplication.md)，排程暂停边界见 [ADR 013](docs/decisions/013-pause-scheduled-promotions.md)，模块边界见 [架构总览](docs/architecture-overview.md)，项目演进、经验和纠偏见 [项目历史与开发复盘](docs/PROJECT-HISTORY.zh-CN.md)，真实用户验收方法见 [首次成功投放试用协议](docs/first-promotion-pilot.md)，目录提交前的双门预检见 [WordPress.org 目录审核预检规范](docs/wordpress-org-submission/review-preflight.md)。
 
 0.2.0 建立了 [ADR 005](docs/decisions/005-controlled-delivery-expansion.md) 的受控投放范围：[ADR 006](docs/decisions/006-paragraph-anchor-delivery.md) 的第 N 段后位置、[ADR 007](docs/decisions/007-canonical-editorial-scope.md) 的互斥 content scope，以及 [ADR 008](docs/decisions/008-manual-placement-and-device-guidance.md) 的显式手动入口和固定设备说明。0.2.1 收口手动区块选择器可靠性；0.2.2 收口首次成功投放、编辑器资产边界、缓存风险披露和站点控制视频素材验证；0.3.0 继续使用同一 Promotion 与判定器，增加有边界的正常流页面横栏；0.3.1 收口移动端触控、RTL 间距和横栏公告模板；0.3.2 不改变投放模型，只完成 WordPress.org 目录资料、标准语言包边界和发布契约；0.3.3 增加有边界的“复制为草稿”、原生排程暂停和可操作重叠提示，不改变前台投放模型。
 
 ## 明确不做
 
-0.3.3 不包含 AdSense 管理、统计追踪、报表、A/B 测试、CMP、Popup、悬浮/吸顶横栏、频控、地理定向、任意 PHP/JavaScript、模板市场、自定义数据库表或旧管理端 SPA。新增能力必须先证明它能缩短或降低“正确发布一条推广”的成本。
+0.3.4 不包含 AdSense 管理、统计追踪、报表、A/B 测试、CMP、Popup、悬浮/吸顶横栏、频控、地理定向、任意 PHP/JavaScript、模板市场、自定义数据库表或旧管理端 SPA。新增能力必须先证明它能缩短或降低“正确发布一条推广”的成本。
 
 ## 开发与验证
 
@@ -46,7 +46,7 @@ bash scripts/release-gate.sh
 贡献代码前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。其中定义了当前事实来源、
 产品边界、兼容策略和发布产物不可变规则。
 
-仓库维护完整的简体中文（`zh_CN`）PHP 与区块编辑器翻译源。WordPress.org 语言包可用时，安装站点通过标准语言包路径加载 PHP 翻译；编辑器继续使用打包 JSON 目录。新增或修改界面文案后执行：
+仓库维护完整的简体中文（`zh_CN`）PHP 与区块编辑器翻译源。WordPress.org 托管版本通过标准语言包路径加载 PHP 和编辑器翻译；翻译源不进入 WordPress.org 提交 ZIP。新增或修改界面文案后执行：
 
 ```bash
 composer i18n:refresh
@@ -74,4 +74,4 @@ bash scripts/release-gate.sh
 
 产物为 `dist/npcink-ad-<Version>.zip` 和 `dist/npcink-ad-<Version>.zip.sha256`，包内顶层目录固定为 `npcink-ad/`。发布门禁要求插件头、`NPCINK_AD_VERSION`、`package.json` 和 readme Stable tag 使用同一版本；由标签触发时，`GITHUB_REF_NAME` 必须为 `v<Version>`。门禁还会校验构建体积、必需文件、禁止内容、SHA-256、官方 Plugin Check 不含 error，以及发布包中不存在旧品牌运行标识。标签工作流在全部验证通过后创建 GitHub prerelease，并同时上传 ZIP 与校验和。
 
-整页缓存环境需要在发布、暂停、恢复、开始和停止边界重新生成受影响页面。0.3.3 继续在检测到 WordPress advanced-cache drop-in 时给出明确提示，但仍要求站点配置相应 TTL 或 purge，不宣称能穿透任意第三方缓存实现分钟级切换。
+整页缓存环境需要在发布、暂停、恢复、开始和停止边界重新生成受影响页面。0.3.4 继续在检测到 WordPress advanced-cache drop-in 时给出明确提示，但仍要求站点配置相应 TTL 或 purge，不宣称能穿透任意第三方缓存实现分钟级切换。

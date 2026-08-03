@@ -257,11 +257,6 @@ REQUIRED_ZIP_ENTRIES=(
   "${PLUGIN_DIR_NAME}/build/promotion-editor.asset.php"
   "${PLUGIN_DIR_NAME}/build/promotion-editor.css"
   "${PLUGIN_DIR_NAME}/build/promotion-editor.js"
-  "${PLUGIN_DIR_NAME}/languages/npcink-ad.pot"
-  "${PLUGIN_DIR_NAME}/languages/npcink-ad-zh_CN.po"
-  "${PLUGIN_DIR_NAME}/languages/npcink-ad-zh_CN.mo"
-  "${PLUGIN_DIR_NAME}/languages/npcink-ad-zh_CN-npcink-ad-block-editor.json"
-  "${PLUGIN_DIR_NAME}/languages/npcink-ad-zh_CN-npcink-ad-promotion-editor.json"
   "${PLUGIN_DIR_NAME}/src/Admin/Menu.php"
   "${PLUGIN_DIR_NAME}/src/Admin/Editor.php"
   "${PLUGIN_DIR_NAME}/src/Admin/Preview_Page.php"
@@ -310,6 +305,7 @@ for rejected_prefix in \
   'node_modules/' \
   'vendor/' \
   'assets/js/' \
+  'languages/' \
   'tests/' \
   'docs/'; do
   reject_zip_prefix "$rejected_prefix"

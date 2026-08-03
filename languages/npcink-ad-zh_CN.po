@@ -32,8 +32,8 @@ msgstr "创建、预览并发布站内 WordPress 推广。"
 msgid "Npcink"
 msgstr "Npcink"
 
+#: src/Admin/Menu.php:55
 #: src/Admin/Menu.php:56
-#: src/Admin/Menu.php:57
 #: src/Data/Post_Types.php:122
 #: src/Data/Post_Types.php:131
 msgid "Promotions"
