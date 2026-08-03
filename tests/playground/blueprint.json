@@ -23,11 +23,39 @@
       "ifAlreadyInstalled": "overwrite"
     },
     {
+      "step": "runPHP",
+      "code": "<?php if (! is_dir('/wordpress/wp-content/languages/plugins') && ! mkdir('/wordpress/wp-content/languages/plugins', 0777, true) && ! is_dir('/wordpress/wp-content/languages/plugins')) { throw new RuntimeException('Could not create the WordPress.org plugin language-pack directory.'); }"
+    },
+    {
       "step": "writeFile",
       "path": "/wordpress/npcink-ad-smoke.php",
       "data": {
         "resource": "bundled",
         "path": "/smoke.php"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/languages/plugins/npcink-ad-zh_CN.mo",
+      "data": {
+        "resource": "bundled",
+        "path": "/language-pack/npcink-ad-zh_CN.mo"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/languages/plugins/npcink-ad-zh_CN-f082745a2ca724d8e3a123193be09fbe.json",
+      "data": {
+        "resource": "bundled",
+        "path": "/language-pack/npcink-ad-zh_CN-f082745a2ca724d8e3a123193be09fbe.json"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/languages/plugins/npcink-ad-zh_CN-74e2c4c8df75775a490c1e153e6a09cd.json",
+      "data": {
+        "resource": "bundled",
+        "path": "/language-pack/npcink-ad-zh_CN-74e2c4c8df75775a490c1e153e6a09cd.json"
       }
     },
     {
