@@ -103,8 +103,7 @@ final class Blocks {
 		);
 		wp_set_script_translations(
 			self::EDITOR_SCRIPT,
-			'npcink-ad',
-			NPCINK_AD_PATH . 'languages'
+			'npcink-ad'
 		);
 
 		wp_register_style(

@@ -38,6 +38,10 @@ trap cleanup EXIT HUP INT TERM
 mkdir -p "$TEMP_DIR/results"
 cp "$PLUGIN_ZIP" "$TEMP_DIR/npcink-ad.zip"
 cp "$SCRIPT_DIR/smoke.php" "$TEMP_DIR/smoke.php"
+mkdir -p "$TEMP_DIR/language-pack"
+cp "$PROJECT_DIR/languages/npcink-ad-zh_CN.mo" "$TEMP_DIR/language-pack/npcink-ad-zh_CN.mo"
+cp "$PROJECT_DIR/languages/npcink-ad-zh_CN-npcink-ad-block-editor.json" "$TEMP_DIR/language-pack/npcink-ad-zh_CN-f082745a2ca724d8e3a123193be09fbe.json"
+cp "$PROJECT_DIR/languages/npcink-ad-zh_CN-npcink-ad-promotion-editor.json" "$TEMP_DIR/language-pack/npcink-ad-zh_CN-74e2c4c8df75775a490c1e153e6a09cd.json"
 jq \
 	--arg wordpress "$WP_VERSION" \
 	--arg php "$PHP_VERSION" \

@@ -26,6 +26,11 @@ all temporary files on exit. It passes WordPress through the CLI and PHP through
 `preferredVersions`: this split is intentional because the current CLI's PHP
 flag is superseded by Blueprint resolution.
 
+The packaged ZIP intentionally excludes translation catalogs for WordPress.org.
+The runner stages the repository translation fixtures in WordPress's
+`wp-content/languages/plugins` directory, which models the language-pack
+delivery path used after directory publication.
+
 The WordPress 6.5 row also protects the split editor dependency contract. The
 packaged `promotion-editor` manifest must register `wp-edit-post` so the legacy
 SlotFill fallback can load when the current `wp-editor` SlotFills are

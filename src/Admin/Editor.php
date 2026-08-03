@@ -89,8 +89,7 @@ final class Editor {
 		);
 		wp_set_script_translations(
 			self::SCRIPT_HANDLE,
-			'npcink-ad',
-			NPCINK_AD_PATH . 'languages'
+			'npcink-ad'
 		);
 
 		wp_register_style(

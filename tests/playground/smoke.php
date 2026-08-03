@@ -217,8 +217,8 @@ $check(
 );
 $check( 'npcink-ad' === $block_editor_script->textdomain, 'The block editor script does not use the npcink-ad text domain.' );
 $check(
-	WP_PLUGIN_DIR . '/npcink-ad/languages' === $block_editor_script->translations_path,
-	'The block editor script does not use the bundled languages directory.'
+	'' === $block_editor_script->translations_path,
+	'The block editor script does not use a bundled language directory.'
 );
 $page_bar_script = wp_scripts()->registered['npcink-ad-page-bar'] ?? null;
 $check( $page_bar_script instanceof _WP_Dependency, 'The page-bar dismissal script was not registered.' );
@@ -243,17 +243,14 @@ $check(
 );
 $check( 'npcink-ad' === $promotion_editor_script->textdomain, 'The Promotion editor script does not use the npcink-ad text domain.' );
 $check(
-	WP_PLUGIN_DIR . '/npcink-ad/languages' === $promotion_editor_script->translations_path,
-	'The Promotion editor script does not use the bundled languages directory.'
+	'' === $promotion_editor_script->translations_path,
+	'The Promotion editor script does not use a bundled language directory.'
 );
 
 $wordpress_org_language_dir  = WP_LANG_DIR . '/plugins';
 $wordpress_org_language_pack = $wordpress_org_language_dir . '/npcink-ad-zh_CN.mo';
 $check( wp_mkdir_p( $wordpress_org_language_dir ), 'The WordPress.org language-pack directory could not be created.' );
-$check(
-	copy( WP_PLUGIN_DIR . '/npcink-ad/languages/npcink-ad-zh_CN.mo', $wordpress_org_language_pack ),
-	'The Simplified Chinese MO catalog could not be staged as a WordPress.org language pack.'
-);
+$check( file_exists( $wordpress_org_language_pack ), 'The Simplified Chinese MO catalog was not staged as a WordPress.org language pack.' );
 
 /** @var WP_Textdomain_Registry $wp_textdomain_registry */
 global $wp_textdomain_registry;
@@ -272,7 +269,7 @@ $check(
 	'Npcink Ad 推广' === _x( 'Npcink Ad Promotion', 'block title', 'npcink-ad' ),
 	'The translated block metadata title did not resolve.'
 );
-$block_script_catalog_path = WP_PLUGIN_DIR . '/npcink-ad/languages/npcink-ad-zh_CN-npcink-ad-block-editor.json';
+$block_script_catalog_path = $wordpress_org_language_dir . '/npcink-ad-zh_CN-f082745a2ca724d8e3a123193be09fbe.json';
 $block_script_catalog      = json_decode( (string) file_get_contents( $block_script_catalog_path ), true );
 $check(
 	is_array( $block_script_catalog ) &&
@@ -286,7 +283,7 @@ $check(
 	'The block editor Simplified Chinese JSON catalog did not resolve.'
 );
 
-$promotion_script_catalog_path = WP_PLUGIN_DIR . '/npcink-ad/languages/npcink-ad-zh_CN-npcink-ad-promotion-editor.json';
+$promotion_script_catalog_path = $wordpress_org_language_dir . '/npcink-ad-zh_CN-74e2c4c8df75775a490c1e153e6a09cd.json';
 $promotion_script_catalog      = json_decode( (string) file_get_contents( $promotion_script_catalog_path ), true );
 $check(
 	is_array( $promotion_script_catalog ) &&
