@@ -8,6 +8,7 @@ artifact or checksum.
 
 - `submission-copy.md`: copy-ready facts and English review notes;
 - `review-checklist.md`: pre-submission, review, SVN, and release steps;
+- `review-preflight.md`: durable directory-review preflight that separates technical package checks from WordPress.org review requirements;
 - `readme.txt`: concise WordPress.org listing candidate;
 - `changelog.txt`: historical changelog moved out of the listing candidate;
 - `translation-copy-zh_CN.md`: copy-ready Simplified Chinese directory text;

@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Npcink Ad 0.3.3\n"
+"Project-Id-Version: Npcink Ad 0.3.4\n"
 "Report-Msgid-Bugs-To: https://github.com/muze-page/npcink-ad/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,8 +36,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: src/Admin/Menu.php:55
 #: src/Admin/Menu.php:56
-#: src/Admin/Menu.php:57
 #: src/Data/Post_Types.php:122
 #: src/Data/Post_Types.php:131
 msgid "Promotions"

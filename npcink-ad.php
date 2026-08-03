@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Npcink Ad
  * Description: Create, preview, and publish site-owned WordPress promotions.
- * Version: 0.3.3
+ * Version: 0.3.4
  * Requires at least: 6.5
  * Tested up to: 7.0
  * Requires PHP: 8.1
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'NPCINK_AD_FILE', __FILE__ );
 define( 'NPCINK_AD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NPCINK_AD_URL', plugin_dir_url( __FILE__ ) );
-define( 'NPCINK_AD_VERSION', '0.3.3' );
+define( 'NPCINK_AD_VERSION', '0.3.4' );
 
 /**
  * Load Npcink Ad classes from the src directory.

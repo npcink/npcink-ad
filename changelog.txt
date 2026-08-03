@@ -1,5 +1,10 @@
 === Npcink Ad Changelog ===
 
+== 0.3.4 ==
+
+* Exclude translation catalogs from the WordPress.org ZIP; translate.wordpress.org provides language packs after approval.
+* Let WordPress place the Npcink Ad top-level menu after existing admin menus instead of reserving a high core-menu position.
+
 == 0.3.3 ==
 
 * Add a nonce-bound POST row action that duplicates one editable Promotion as a current-user draft.
