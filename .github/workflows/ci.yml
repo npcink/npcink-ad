@@ -126,10 +126,14 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Run minimum editor E2E
-        run: WP_VERSION=6.5 PHP_VERSION=8.1 pnpm run test:e2e:editor
+        run: >-
+          tests/e2e/run-with-playground-startup-retry.sh
+          env WP_VERSION=6.5 PHP_VERSION=8.1 pnpm run test:e2e:editor
 
       - name: Run current editor E2E
-        run: WP_VERSION=7.1 PHP_VERSION=8.5 pnpm run test:e2e:editor
+        run: >-
+          tests/e2e/run-with-playground-startup-retry.sh
+          env WP_VERSION=7.1 PHP_VERSION=8.5 pnpm run test:e2e:editor
 
   theme-compatibility:
     needs: verify
