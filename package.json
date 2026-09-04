@@ -23,7 +23,7 @@
     }
   },
   "scripts": {
-    "audit:dependencies": "pnpm audit --audit-level=high",
+    "audit:dependencies": "bash scripts/audit-dependencies.sh",
     "start": "wp-scripts start --webpack-src-dir=assets/js --webpack-output-dir=build",
     "build": "wp-scripts build --webpack-src-dir=assets/js --webpack-output-dir=build",
     "lint:js": "wp-scripts lint-js assets/js webpack.config.js",
