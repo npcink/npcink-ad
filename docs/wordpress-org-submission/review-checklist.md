@@ -1,17 +1,15 @@
 # WordPress.org review and release checklist
 
-## Acceptance evidence recorded on 2026-07-18
+## Acceptance evidence for `v0.3.5`
 
-- Exact artifact: GitHub Release `v0.3.2` asset `npcink-ad-0.3.2.zip`,
-  `124605` bytes.
-- SHA-256: `0ccaacf5452c316184e852180ce7bf9fb7785f36b9db26f59eed0725512e94de`.
-- The independently computed checksum, GitHub asset digest, and downloaded
-  `npcink-ad-0.3.2.zip.sha256` agree.
-- GitHub [Release Gate run 29627459512](https://github.com/muze-page/npcink-ad/actions/runs/29627459512)
-  succeeded on tag commit `82df4e0ab5de1a6be60ae7aef25fc8c6b72f9361`.
-- On 2026-07-18, the `muze233` account holder confirmed that the account
-  email is current and monitored, and that `plugins@wordpress.org` has been
-  added to the mailbox allowlist.
+- Exact artifact: record the GitHub Release `v0.3.5` asset name and byte size
+  after the tag-bound workflow succeeds.
+- SHA-256: record the checksum from the same tagged artifact.
+- Confirm that the independently computed checksum, GitHub asset digest, and
+  downloaded `npcink-ad-0.3.5.zip.sha256` agree.
+- Record the tag-bound GitHub Release Gate run URL and tag commit.
+- Confirm that the `muze233` account email is current and monitored, and that
+  `plugins@wordpress.org` is allowlisted before submission.
 
 Commands rerun against the downloaded artifact:
 
@@ -19,26 +17,24 @@ Commands rerun against the downloaded artifact:
 git diff --check
 composer check
 pnpm check
-gh release download v0.3.2 --repo muze-page/npcink-ad \
-  --pattern 'npcink-ad-0.3.2.zip*'
-shasum -a 256 -c npcink-ad-0.3.2.zip.sha256
-PLUGIN_ZIP=/private/var/folders/1p/rhqz17yx3v5b_jcrlqk8xrnr0000gn/T/npcink-ad-v0.3.2-acceptance.UihM0o/npcink-ad-0.3.2.zip
+gh release download v0.3.5 --repo npcink/npcink-ad \
+  --pattern 'npcink-ad-0.3.5.zip*'
+shasum -a 256 -c npcink-ad-0.3.5.zip.sha256
+PLUGIN_ZIP=/path/to/accepted/npcink-ad-0.3.5.zip
 PLUGIN_ZIP="$PLUGIN_ZIP" bash tests/plugin-check/run.sh
 WP_VERSION=6.5 PHP_VERSION=8.1 PLUGIN_ZIP="$PLUGIN_ZIP" \
   tests/playground/run.sh
-WP_VERSION=latest PHP_VERSION=8.5 PLUGIN_ZIP="$PLUGIN_ZIP" \
+WP_VERSION=7.1 PHP_VERSION=8.5 PLUGIN_ZIP="$PLUGIN_ZIP" \
   tests/playground/run.sh
-WP_VERSION=7.0 PHP_VERSION=8.5 PLUGIN_ZIP="$PLUGIN_ZIP" \
+WP_VERSION=7.1 PHP_VERSION=8.5 PLUGIN_ZIP="$PLUGIN_ZIP" \
   tests/e2e/run.sh tests/e2e/first-promotion.spec.ts
 ```
 
-Results: source checks passed (324 PHP tests / 757 assertions and 8 JS suites /
-138 tests); Plugin Check 2.0.0 reported zero errors and only the two classified
-`meta_query` and `DONOTCACHEPAGE` warnings; minimum/current disposable installs
-returned `NPCINK_AD_SMOKE_OK`; the clean first-run browser flow passed 1/1.
-An additional disposable WordPress 7.0 / PHP 8.5 browser run uploaded the same
-ZIP through Plugins > Add Plugin > Upload Plugin, confirmed the active plugin
-row, entered the Promotion screen, and found the Npcink Ad admin menu.
+Results: local source checks currently pass (344 PHP tests / 868 assertions and
+8 JS suites / 140 tests); Composer audit is clear. The npm audit result remains
+pending because the registry audit endpoint timed out. Minimum/current disposable
+installs returned `NPCINK_AD_SMOKE_OK`; the tag-bound gate, downloaded-artifact
+Plugin Check, and WordPress 7.1 browser upload must be recorded after publication.
 
 ## Before uploading the ZIP
 
@@ -49,9 +45,9 @@ row, entered the Promotion screen, and found the Npcink Ad admin menu.
 - [x] Whitelist `plugins@wordpress.org` and check spam during review.
 - [x] Confirm `Contributors: muze233`, Text Domain `npcink-ad`, WordPress 6.5,
   PHP 8.1, and GitHub source/support links in the submission material.
-- [x] Promote the WordPress.org material through `v0.3.2` instead of modifying
-  or reusing the already checksummed `v0.3.1` ZIP.
-- [x] Make the root plugin version, `NPCINK_AD_VERSION`, `package.json`, root
+- [ ] Promote the WordPress.org material through `v0.3.5` instead of modifying
+  or reusing the already published `v0.3.4` ZIP.
+- [ ] Make the root plugin version, `NPCINK_AD_VERSION`, `package.json`, root
   `readme.txt` Stable tag, and Git tag identical. Verify the future SVN tag only
   after directory approval.
 - [x] Copy the candidate `readme.txt` and `changelog.txt` into the plugin root;
@@ -59,7 +55,7 @@ row, entered the Promotion screen, and found the Npcink Ad admin menu.
 - [x] Confirm runtime code contains no manual `load_plugin_textdomain()` call
   and the packaged Playground smoke proves Simplified Chinese through the
   WordPress.org PHP language-pack path and editor JSON catalogs.
-- [x] Confirm the tag-bound GitHub Release Gate succeeded, then independently
+- [ ] Confirm the tag-bound GitHub Release Gate succeeded, then independently
   run Plugin Check against the downloaded Release ZIP; accept no error and
   review every warning rather than hiding it.
 - [x] Install the exact generated ZIP through Plugins > Add Plugin > Upload
@@ -89,7 +85,7 @@ row, entered the Promotion screen, and found the Npcink Ad admin menu.
   `npcink-ad/` directory.
 - [ ] Copy directory PNGs into top-level `assets/`, next to `trunk/` and
   `tags/`, and set their SVN MIME types to `image/png`.
-- [ ] Copy the tested trunk to `tags/0.3.2/`; do not use `Stable tag: trunk`.
+- [ ] Copy the tested trunk to `tags/0.3.5/`; do not use `Stable tag: trunk`.
 - [ ] Confirm the Stable tag points to a real SVN tag whose main PHP Version
   matches exactly.
 - [ ] Complete any WordPress.org release-confirmation step and verify the
@@ -123,7 +119,7 @@ npcink-ad/
 │   ├── readme.txt
 │   └── ...
 └── tags/
-    └── 0.3.2/
+    └── 0.3.5/
         ├── npcink-ad.php
         ├── readme.txt
         └── ...

@@ -44,7 +44,7 @@ make_pot() {
 	run_wp i18n make-pot . "$destination" \
 		--slug="$DOMAIN" \
 		--domain="$DOMAIN" \
-		--headers='{"Report-Msgid-Bugs-To":"https://github.com/muze-page/npcink-ad/issues","POT-Creation-Date":""}' \
+		--headers='{"Report-Msgid-Bugs-To":"https://github.com/npcink/npcink-ad/issues","POT-Creation-Date":""}' \
 		--skip-block-json \
 		--exclude=.github,assets/js,dist,node_modules,playwright-report,test-results,tests,vendor
 }

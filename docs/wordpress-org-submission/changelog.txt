@@ -1,5 +1,9 @@
 === Npcink Ad Changelog ===
 
+== 0.3.5 ==
+
+* Harden release validation and retain the privacy-first single Promotion workflow.
+
 == 0.3.2 ==
 
 * Prepare the concise WordPress.org listing, localized directory images, review notes, and release checklist.

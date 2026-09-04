@@ -17,6 +17,7 @@
 /.idea
 /README.md
 /README.en.md
+/CONTRIBUTING.md
 /phpcs.xml
 /phpstan.neon
 /phpunit.xml.dist
@@ -24,6 +25,7 @@
 /webpack.config.js
 /playwright.config.ts
 /pnpm-lock.yaml
+/pnpm-workspace.yaml
 /package.json
 /composer.json
 /composer.lock

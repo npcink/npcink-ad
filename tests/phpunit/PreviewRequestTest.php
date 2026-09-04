@@ -60,6 +60,8 @@ final class PreviewRequestTest extends TestCase {
 		$GLOBALS['npcink_ad_test_singular_post_type']  = 'post';
 		$GLOBALS['npcink_ad_test_preview_target_id']   = self::TARGET_ID;
 		$GLOBALS['npcink_ad_test_preview_target_type'] = 'post';
+		$GLOBALS['npcink_ad_test_preview_target_status'] = 'publish';
+		$GLOBALS['npcink_ad_test_preview_target_public'] = true;
 		$GLOBALS['npcink_ad_test_preview_filters']     = array();
 		$GLOBALS['npcink_ad_test_preview_removed_callbacks'] = array();
 		$GLOBALS['npcink_ad_test_preview_headers']     = array();
@@ -174,6 +176,25 @@ final class PreviewRequestTest extends TestCase {
 			'post' => array( 'post' ),
 			'page' => array( 'page' ),
 		);
+	}
+
+	/**
+	 * Automatic previews reject targets that are not public, even when the
+	 * signed request is otherwise valid.
+	 */
+	public function test_automatic_preview_rejects_non_public_targets(): void {
+		foreach ( array( 'draft', 'private' ) as $status ) {
+			$GLOBALS['npcink_ad_test_preview_target_status'] = $status;
+			$GLOBALS['npcink_ad_test_preview_target_public'] = false;
+
+			try {
+				$this->preview_request()->activate();
+				self::fail( 'Expected the non-public preview target to be rejected.' );
+			} catch ( PreviewRequestWpDieException $exception ) {
+				self::assertSame( 400, $exception->response );
+				self::assertSame( 'Promotion previews require a public post or page.', $exception->getMessage() );
+			}
+		}
 	}
 
 	/**

@@ -67,7 +67,7 @@ $check(
 	'The packaged Classic paragraph processor did not load against the Core HTML API.'
 );
 $plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/npcink-ad/npcink-ad.php', false, false );
-$check( '/languages' === $plugin_data['DomainPath'], 'The packaged plugin does not declare its languages directory.' );
+$check( ! isset( $plugin_data['DomainPath'] ) || '' === $plugin_data['DomainPath'], 'The packaged plugin declares a stale languages directory.' );
 $check( post_type_exists( 'npcink_promotion' ), 'The npcink_promotion post type was not registered.' );
 $check( ! post_type_exists( 'npcink_ad_placement' ), 'The removed npcink_ad_placement post type is still registered.' );
 $check( get_role( 'administrator' )->has_cap( 'manage_npcink_ads' ), 'Administrators did not receive the management capability.' );
@@ -1935,6 +1935,16 @@ $placement_records = get_posts(
 );
 $check( array() === $placement_records, 'The single-promotion workflow created placement records.' );
 
+$unrelated_meta_post_id = wp_insert_post(
+	array(
+		'post_title'  => 'Unrelated uninstall metadata fixture',
+		'post_status' => 'publish',
+		'post_type'   => 'post',
+	)
+);
+$check( 0 < $unrelated_meta_post_id, 'Could not create the unrelated uninstall metadata fixture.' );
+update_post_meta( $unrelated_meta_post_id, Post_Types::CONTENT_SCOPE_META, 'all' );
+
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	define( 'WP_UNINSTALL_PLUGIN', 'npcink-ad/npcink-ad.php' );
 }
@@ -1942,6 +1952,7 @@ require WP_PLUGIN_DIR . '/npcink-ad/uninstall.php';
 $check( null === get_post( $promotion_id ), 'Explicit uninstall did not delete the promotion.' );
 $check( ! get_role( 'administrator' )->has_cap( 'manage_npcink_ads' ), 'Explicit uninstall did not remove the management capability.' );
 $check( ! get_role( 'editor' )->has_cap( 'manage_npcink_ads' ), 'Explicit uninstall did not remove the editor capability.' );
+$check( 'all' === get_post_meta( $unrelated_meta_post_id, Post_Types::CONTENT_SCOPE_META, true ), 'Uninstall removed metadata from an unrelated post.' );
 
 $result = array(
 	'status'    => 'NPCINK_AD_SMOKE_OK',

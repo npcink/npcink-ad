@@ -2,9 +2,9 @@
 Contributors: muze233
 Tags: promotion, advertising, marketing, blocks, announcements
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.3.4
+Stable tag: 0.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,7 +78,7 @@ No. Top and bottom page bars remain in normal document flow. The close button hi
 
 == Development ==
 
-The complete human-readable source and build instructions are available at https://github.com/muze-page/npcink-ad.
+The complete human-readable source and build instructions are available at https://github.com/npcink/npcink-ad.
 
 The JavaScript and CSS files in `build/` are generated with Node.js 20 and pnpm 10:
 
@@ -88,6 +88,11 @@ The JavaScript and CSS files in `build/` are generated with Node.js 20 and pnpm 
 Composer dependencies are development-only quality tools and are not bundled in the release package.
 
 == Changelog ==
+
+= 0.3.5 =
+
+* Harden the release contract for WordPress 7.1 compatibility and dependency auditing.
+* Keep the single Promotion model, privacy boundary, and server-side delivery rules unchanged.
 
 = 0.3.4 =
 
