@@ -45,9 +45,9 @@ Plugin Check, and WordPress 7.1 browser upload must be recorded after publicatio
 - [x] Whitelist `plugins@wordpress.org` and check spam during review.
 - [x] Confirm `Contributors: muze233`, Text Domain `npcink-ad`, WordPress 6.5,
   PHP 8.1, and GitHub source/support links in the submission material.
-- [ ] Promote the WordPress.org material through `v0.3.5` instead of modifying
+- [x] Promote the WordPress.org material through `v0.3.5` instead of modifying
   or reusing the already published `v0.3.4` ZIP.
-- [ ] Make the root plugin version, `NPCINK_AD_VERSION`, `package.json`, root
+- [x] Make the root plugin version, `NPCINK_AD_VERSION`, `package.json`, root
   `readme.txt` Stable tag, and Git tag identical. Verify the future SVN tag only
   after directory approval.
 - [x] Copy the candidate `readme.txt` and `changelog.txt` into the plugin root;
@@ -64,7 +64,7 @@ Plugin Check, and WordPress 7.1 browser upload must be recorded after publicatio
   compiled assets, and contains no tests, Node modules, Composer vendor tree,
   development logs, or source maps.
 - [x] Recompute the `.zip.sha256` after downloading the final artifact.
-- [ ] Submit the exact final ZIP at <https://wordpress.org/plugins/developers/add/>.
+- [x] WordPress.org approval was already granted; do not submit the web form again.
 
 ## During review
 
@@ -80,13 +80,13 @@ Plugin Check, and WordPress 7.1 browser upload must be recorded after publicatio
 
 ## After approval
 
-- [ ] Check out `https://plugins.svn.wordpress.org/npcink-ad`.
-- [ ] Put plugin files directly in `trunk/`; do not nest them in another
+- [x] Check out `https://plugins.svn.wordpress.org/npcink-ad`.
+- [x] Put plugin files directly in `trunk/`; do not nest them in another
   `npcink-ad/` directory.
-- [ ] Copy directory PNGs into top-level `assets/`, next to `trunk/` and
+- [x] Copy directory PNGs into top-level `assets/`, next to `trunk/` and
   `tags/`, and set their SVN MIME types to `image/png`.
-- [ ] Copy the tested trunk to `tags/0.3.5/`; do not use `Stable tag: trunk`.
-- [ ] Confirm the Stable tag points to a real SVN tag whose main PHP Version
+- [x] Copy the tested trunk to `tags/0.3.5/`; do not use `Stable tag: trunk`.
+- [x] Confirm the Stable tag points to a real SVN tag whose main PHP Version
   matches exactly.
 - [ ] Complete any WordPress.org release-confirmation step and verify the
   public download ZIP before announcing availability.
