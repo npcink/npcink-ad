@@ -13,16 +13,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
  * Remove Npcink Ad data from the current site in the network.
  */
 function npcink_ad_uninstall_site_data(): void {
-	$npcink_ad_scope_meta_keys = array(
-		'_npcink_ad_content_scope',
-		'_npcink_ad_category_ids',
-		'_npcink_ad_tag_ids',
-		'_npcink_ad_page_scope',
-	);
-	foreach ( $npcink_ad_scope_meta_keys as $npcink_ad_scope_meta_key ) {
-		delete_post_meta_by_key( $npcink_ad_scope_meta_key );
-	}
-
 	$npcink_ad_post_ids = get_posts(
 		array(
 			'post_type'      => 'npcink_promotion',
@@ -31,7 +21,24 @@ function npcink_ad_uninstall_site_data(): void {
 			'fields'         => 'ids',
 		)
 	);
+	$npcink_ad_meta_keys = array(
+		'_npcink_ad_location',
+		'_npcink_ad_content_scope',
+		'_npcink_ad_include_ids',
+		'_npcink_ad_exclude_ids',
+		'_npcink_ad_category_ids',
+		'_npcink_ad_tag_ids',
+		'_npcink_ad_device',
+		'_npcink_ad_start_at',
+		'_npcink_ad_end_at',
+		'_npcink_ad_paragraph_number',
+		'_npcink_ad_first_publish_completed',
+		'_npcink_ad_page_scope',
+	);
 	foreach ( $npcink_ad_post_ids as $npcink_ad_post_id ) {
+		foreach ( $npcink_ad_meta_keys as $npcink_ad_meta_key ) {
+			delete_post_meta( (int) $npcink_ad_post_id, $npcink_ad_meta_key );
+		}
 		wp_delete_post( (int) $npcink_ad_post_id, true );
 	}
 

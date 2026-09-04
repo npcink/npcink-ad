@@ -1,8 +1,8 @@
 # Npcink Ad
 
-Npcink Ad 0.3.4 is a WordPress-native, privacy-first workflow for site-owned promotions. It has one primary path: **create creative → set delivery rules → verify a real-page verdict → publish or pause**.
+Npcink Ad 0.3.5 is a WordPress-native, privacy-first workflow for site-owned promotions. It has one primary path: **create creative → set delivery rules → verify a real-page verdict → publish or pause**.
 
-> Version 0.3.4 continues the new pre-GA contract. It provides no compatibility layer for previous development data, APIs, blocks, or storage identifiers.
+> Version 0.3.5 continues the new pre-GA contract. It provides no compatibility layer for previous development data, APIs, blocks, or storage identifiers.
 
 ## Product boundary
 
@@ -28,7 +28,7 @@ Version 0.2.0 established the controlled delivery scope in [ADR 005](docs/decisi
 
 ## Non-goals
 
-Version 0.3.4 has no AdSense management, analytics, tracking, reports, A/B tests, CMP, popup builder, sticky/floating bar, frequency or geographic targeting, arbitrary PHP/JavaScript, template marketplace, custom database table, or legacy administration SPA.
+Version 0.3.5 has no AdSense management, analytics, tracking, reports, A/B tests, CMP, popup builder, sticky/floating bar, frequency or geographic targeting, arbitrary PHP/JavaScript, template marketplace, custom database table, or legacy administration SPA.
 
 ## Development and verification
 
@@ -75,4 +75,4 @@ bash scripts/release-gate.sh
 
 The artifacts are `dist/npcink-ad-<Version>.zip` and `dist/npcink-ad-<Version>.zip.sha256`, with the fixed ZIP top-level directory `npcink-ad/`. The gate requires the plugin header, `NPCINK_AD_VERSION`, `package.json`, and the readme Stable tag to share that version. In a tag-triggered build, `GITHUB_REF_NAME` must be `v<Version>`. It also verifies bundle budgets, required files, forbidden content, the SHA-256 digest, zero official Plugin Check errors, and the absence of legacy brand identifiers from the package. After all tag checks pass, GitHub Actions creates a prerelease containing both artifacts.
 
-Full-page-cache deployments must regenerate affected pages at publish, pause, resume, start, and stop boundaries. Version 0.3.4 continues to warn when a WordPress advanced-cache drop-in is detected, but sites still need an appropriate TTL or purge path; Npcink Ad does not claim minute-accurate switching through arbitrary third-party caches.
+Full-page-cache deployments must regenerate affected pages at publish, pause, resume, start, and stop boundaries. Version 0.3.5 continues to warn when a WordPress advanced-cache drop-in is detected, but sites still need an appropriate TTL or purge path; Npcink Ad does not claim minute-accurate switching through arbitrary third-party caches.

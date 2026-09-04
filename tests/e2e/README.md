@@ -49,7 +49,7 @@ Promotions. It verifies the empty-list guide, enters through **Add first
 Promotion**, and checks the editor guide from incomplete rules through the
 ready state and its disappearance after publication. Gutenberg title, content,
 and saves use only the top-level WordPress data store so the same test remains
-independent of the WordPress 7.0 editor iframe. It also verifies the generated
+independent of the WordPress 7.1 editor iframe. It also verifies the generated
 real-page preview as a focused single-scroll workspace, the delivery modal at
 1366, 1280, 782, and 390 pixels, category and tag candidate filters that save
 only explicit content IDs, live delivery, pause, the persisted post-publish
@@ -68,7 +68,7 @@ Run the minimum and current compatibility rows:
 
 ```sh
 WP_VERSION=6.5 PHP_VERSION=8.1 pnpm run test:e2e:editor
-WP_VERSION=7.0 PHP_VERSION=8.5 pnpm run test:e2e:editor
+WP_VERSION=7.1 PHP_VERSION=8.5 pnpm run test:e2e:editor
 ```
 
 Pass a spec path after `--` when iterating on one flow:

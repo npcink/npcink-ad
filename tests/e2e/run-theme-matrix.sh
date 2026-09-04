@@ -63,6 +63,6 @@ TWENTY_TWENTY_FIVE_ZIP="$(download_theme \
 	'f333ce53aaa4049639298247d03480a4bd9b56fa8f0fea0440da262d7d595ba4')"
 
 run_theme 'twentytwentyone' "$TWENTY_TWENTY_ONE_ZIP" '6.5' '8.1'
-run_theme 'twentytwentyfive' "$TWENTY_TWENTY_FIVE_ZIP" '7.0' '8.5'
+run_theme 'twentytwentyfive' "$TWENTY_TWENTY_FIVE_ZIP" '7.1' '8.5'
 
 echo '[theme-matrix] OK: classic and block theme page-bar delivery'

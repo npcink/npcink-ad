@@ -129,7 +129,7 @@ jobs:
         run: WP_VERSION=6.5 PHP_VERSION=8.1 pnpm run test:e2e:editor
 
       - name: Run current editor E2E
-        run: WP_VERSION=7.0 PHP_VERSION=8.5 pnpm run test:e2e:editor
+        run: WP_VERSION=7.1 PHP_VERSION=8.5 pnpm run test:e2e:editor
 
   theme-compatibility:
     needs: verify

@@ -6,12 +6,12 @@
 | --- | --- |
 | Plugin name | Npcink Ad |
 | Requested slug | `npcink-ad` |
-| Proposed first directory release | `0.3.2` |
+| Proposed first directory release | `0.3.5` |
 | WordPress.org owner | `muze233` |
 | Author / brand | Npcink |
 | License | GPLv2 or later |
-| Source | <https://github.com/muze-page/npcink-ad> |
-| Support | <https://github.com/muze-page/npcink-ad/issues> |
+| Source | <https://github.com/npcink/npcink-ad> |
+| Support | <https://github.com/npcink/npcink-ad/issues> |
 | Minimum WordPress | 6.5 |
 | Minimum PHP | 8.1 |
 | Text domain | `npcink-ad` |
@@ -81,7 +81,7 @@ WordPress content and KSES boundaries.
 ### Source and build
 
 The complete human-readable source and tagged history are public at
-<https://github.com/muze-page/npcink-ad>. Production JavaScript and CSS in
+<https://github.com/npcink/npcink-ad>. Production JavaScript and CSS in
 `build/` are generated with Node.js 20 and pnpm 10:
 
 ```text
@@ -104,7 +104,7 @@ content and accounts.
 ### Validation evidence
 
 The following evidence was refreshed on 2026-07-18 against the unchanged
-`npcink-ad-0.3.2.zip` downloaded from GitHub Release `v0.3.2` (`124605` bytes,
+`npcink-ad-0.3.5.zip` downloaded from GitHub Release `v0.3.5` (final size and
 SHA-256 `0ccaacf5452c316184e852180ce7bf9fb7785f36b9db26f59eed0725512e94de`).
 The ZIP has not been submitted to WordPress.org.
 

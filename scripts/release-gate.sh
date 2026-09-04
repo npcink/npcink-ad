@@ -65,6 +65,7 @@ done < <(
 
 echo "[release-gate] 3/10 Composer checks"
 composer check
+composer audit --locked --no-interaction
 
 echo "[release-gate] 4/10 Frontend type and lint checks"
 if grep -RInE '@wordpress/(ui|private-apis)|core/edit-post|(^|[^[:alnum:]_])unlock[[:space:]]*\(' assets/js package.json; then
@@ -75,6 +76,7 @@ pnpm run typecheck
 pnpm run test:js
 pnpm run lint:js
 pnpm run lint:style
+pnpm run audit:dependencies
 
 echo "[release-gate] 5/10 Build production assets once"
 pnpm run build
@@ -307,7 +309,9 @@ for rejected_prefix in \
   'assets/js/' \
   'languages/' \
   'tests/' \
-  'docs/'; do
+  'docs/' \
+  'CONTRIBUTING.md' \
+  'pnpm-workspace.yaml'; do
   reject_zip_prefix "$rejected_prefix"
 done
 

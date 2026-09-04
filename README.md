@@ -1,8 +1,8 @@
 # Npcink Ad
 
-Npcink Ad 0.3.4 是一个 WordPress 原生、隐私优先的站内推广发布工具。核心流程只有一条：**创建推广内容 → 设置展示规则 → 在真实页面预览运行结论 → 发布或暂停**。
+Npcink Ad 0.3.5 是一个 WordPress 原生、隐私优先的站内推广发布工具。核心流程只有一条：**创建推广内容 → 设置展示规则 → 在真实页面预览运行结论 → 发布或暂停**。
 
-> 0.3.4 延续全新的 pre-GA 契约，不提供旧开发数据、API、区块或存储标识的兼容层。
+> 0.3.5 延续全新的 pre-GA 契约，不提供旧开发数据、API、区块或存储标识的兼容层。
 
 ## 产品边界
 
@@ -28,7 +28,7 @@ Npcink Ad 0.3.4 是一个 WordPress 原生、隐私优先的站内推广发布�
 
 ## 明确不做
 
-0.3.4 不包含 AdSense 管理、统计追踪、报表、A/B 测试、CMP、Popup、悬浮/吸顶横栏、频控、地理定向、任意 PHP/JavaScript、模板市场、自定义数据库表或旧管理端 SPA。新增能力必须先证明它能缩短或降低“正确发布一条推广”的成本。
+0.3.5 不包含 AdSense 管理、统计追踪、报表、A/B 测试、CMP、Popup、悬浮/吸顶横栏、频控、地理定向、任意 PHP/JavaScript、模板市场、自定义数据库表或旧管理端 SPA。新增能力必须先证明它能缩短或降低“正确发布一条推广”的成本。
 
 ## 开发与验证
 
@@ -74,4 +74,4 @@ bash scripts/release-gate.sh
 
 产物为 `dist/npcink-ad-<Version>.zip` 和 `dist/npcink-ad-<Version>.zip.sha256`，包内顶层目录固定为 `npcink-ad/`。发布门禁要求插件头、`NPCINK_AD_VERSION`、`package.json` 和 readme Stable tag 使用同一版本；由标签触发时，`GITHUB_REF_NAME` 必须为 `v<Version>`。门禁还会校验构建体积、必需文件、禁止内容、SHA-256、官方 Plugin Check 不含 error，以及发布包中不存在旧品牌运行标识。标签工作流在全部验证通过后创建 GitHub prerelease，并同时上传 ZIP 与校验和。
 
-整页缓存环境需要在发布、暂停、恢复、开始和停止边界重新生成受影响页面。0.3.4 继续在检测到 WordPress advanced-cache drop-in 时给出明确提示，但仍要求站点配置相应 TTL 或 purge，不宣称能穿透任意第三方缓存实现分钟级切换。
+整页缓存环境需要在发布、暂停、恢复、开始和停止边界重新生成受影响页面。0.3.5 继续在检测到 WordPress advanced-cache drop-in 时给出明确提示，但仍要求站点配置相应 TTL 或 purge，不宣称能穿透任意第三方缓存实现分钟级切换。

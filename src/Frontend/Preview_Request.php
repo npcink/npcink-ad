@@ -152,6 +152,9 @@ final class Preview_Request {
 		if ( ! is_singular() || 1 > $target_id ) {
 			return false;
 		}
+		if ( 'publish' !== get_post_status( $target_id ) || ! is_post_publicly_viewable( $target_id ) ) {
+			return false;
+		}
 
 		$location = isset( $promotion['location'] ) ? (string) $promotion['location'] : 'content_after';
 		if ( ! in_array( $location, Post_Types::AUTOMATIC_LOCATIONS, true ) ) {

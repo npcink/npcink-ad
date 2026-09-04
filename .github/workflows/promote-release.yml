@@ -1,0 +1,53 @@
+name: Promote Reviewed Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: GitHub release tag to promote, for example v0.3.5
+        required: true
+        type: string
+      wordpress_org_approval:
+        description: WordPress.org approval or public-download reference
+        required: true
+        type: string
+      artifact_sha256:
+        description: SHA-256 recorded for the WordPress.org-reviewed ZIP
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify the candidate release is still a prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          is_prerelease="$(gh release view "$RELEASE_TAG" --json isPrerelease --jq '.isPrerelease')"
+          test "$is_prerelease" = true
+
+      - name: Promote the WordPress.org-reviewed release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          APPROVAL_REFERENCE: ${{ inputs.wordpress_org_approval }}
+          EXPECTED_SHA256: ${{ inputs.artifact_sha256 }}
+        run: |
+          printf 'WordPress.org approval reference: %s\n' "$APPROVAL_REFERENCE"
+          workdir="$(mktemp -d)"
+          trap 'rm -rf "$workdir"' EXIT
+          gh release download "$RELEASE_TAG" --pattern 'npcink-ad-*.zip' --pattern 'npcink-ad-*.zip.sha256' --dir "$workdir"
+          zip_file="$(find "$workdir" -maxdepth 1 -type f -name 'npcink-ad-*.zip' -print -quit)"
+          checksum_file="$(find "$workdir" -maxdepth 1 -type f -name 'npcink-ad-*.zip.sha256' -print -quit)"
+          test -n "$zip_file" && test -n "$checksum_file"
+          actual_sha256="$(sha256sum "$zip_file" | awk '{print $1}')"
+          test "$actual_sha256" = "$EXPECTED_SHA256"
+          grep -Fq "$EXPECTED_SHA256  $(basename "$zip_file")" "$checksum_file"
+          gh release edit "$RELEASE_TAG" --prerelease=false --latest

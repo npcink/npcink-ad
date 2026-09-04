@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Npcink Ad 0.3.3\n"
-"Report-Msgid-Bugs-To: https://github.com/muze-page/npcink-ad/issues\n"
+"Project-Id-Version: Npcink Ad 0.3.5\n"
+"Report-Msgid-Bugs-To: https://github.com/npcink/npcink-ad/issues\n"
 "Last-Translator: Npcink\n"
 "Language-Team: Chinese (Simplified)\n"
 "MIME-Version: 1.0\n"
@@ -200,7 +200,7 @@ msgstr "此推广预览不可用。"
 msgid "Promotion previews require a public post or page."
 msgstr "推广预览需要使用公开的文章或页面。"
 
-#: src/Frontend/Preview_Request.php:208
+#: src/Frontend/Preview_Request.php:211
 msgid "Manual block preview is shown after the page content. The live position is controlled by where the block is inserted."
 msgstr "手动区块预览显示在页面内容之后。正式位置由区块的插入位置决定。"
 
@@ -1112,7 +1112,7 @@ msgstr "页面顶部横栏"
 msgid "Bottom page bar"
 msgstr "页面底部横栏"
 
-#: src/Frontend/Preview_Request.php:228
+#: src/Frontend/Preview_Request.php:231
 msgid "The active theme did not render the selected page-bar hook. This placement cannot display in this template."
 msgstr "当前主题没有渲染所选的页面横栏挂钩，因此此展示位置无法在该模板中显示。"
 

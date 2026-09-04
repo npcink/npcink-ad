@@ -2,8 +2,8 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Npcink Ad 0.3.4\n"
-"Report-Msgid-Bugs-To: https://github.com/muze-page/npcink-ad/issues\n"
+"Project-Id-Version: Npcink Ad 0.3.5\n"
+"Report-Msgid-Bugs-To: https://github.com/npcink/npcink-ad/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,11 +539,11 @@ msgstr ""
 msgid "Promotion previews require a public post or page."
 msgstr ""
 
-#: src/Frontend/Preview_Request.php:208
+#: src/Frontend/Preview_Request.php:211
 msgid "Manual block preview is shown after the page content. The live position is controlled by where the block is inserted."
 msgstr ""
 
-#: src/Frontend/Preview_Request.php:228
+#: src/Frontend/Preview_Request.php:231
 msgid "The active theme did not render the selected page-bar hook. This placement cannot display in this template."
 msgstr ""
 

@@ -1,7 +1,7 @@
 # WordPress.org submission pack
 
 This directory prepares the public directory material for Npcink Ad as a
-proposed `v0.3.2` release without changing the already published `v0.3.1`
+proposed `v0.3.5` release without changing the already published `v0.3.4`
 artifact or checksum.
 
 ## Contents
@@ -22,14 +22,11 @@ release tag after the next repository version is cut.
 
 ## Version boundary
 
-Do not replace the readme inside the existing `v0.3.1` ZIP. The published ZIP
-has SHA-256
-`51acbf8d9c86cc4c5bb7a8eb2c3ec199b7abce2007d9eb3e76d2064d5fc58838`.
-The `v0.3.2` work began one workflow-only commit past that tag while the plugin
-still identified itself as `0.3.1`, so a newly generated same-name ZIP had a
-different checksum and must not be submitted as `v0.3.1`.
+Do not replace the readme inside the existing `v0.3.4` ZIP. The `v0.3.5`
+candidate is a new release line and its ZIP and checksum must be generated from
+the same tagged commit; it must not be renamed as `v0.3.4`.
 
-Promote the final directory copy into the repository root as `v0.3.2`, update
+Promote the final directory copy into the repository root as `v0.3.5`, update
 every version contract together, run the complete release gate, publish the
 GitHub tag, and submit that exact tagged ZIP to WordPress.org.
 

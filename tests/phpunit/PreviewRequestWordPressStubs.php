@@ -90,6 +90,33 @@ if ( ! function_exists( __NAMESPACE__ . '\\get_post_type' ) ) {
 	}
 }
 
+if ( ! function_exists( __NAMESPACE__ . '\\get_post_status' ) ) {
+	/**
+	 * Return the current fixture post status.
+	 *
+	 * @param int $post_id Queried post ID.
+	 */
+	function get_post_status( int $post_id ): string|false {
+		unset( $post_id );
+		$status = $GLOBALS['npcink_ad_test_preview_target_status'] ?? 'publish';
+
+		return is_string( $status ) ? $status : false;
+	}
+}
+
+if ( ! function_exists( __NAMESPACE__ . '\\is_post_publicly_viewable' ) ) {
+	/**
+	 * Return whether the current fixture target is publicly viewable.
+	 *
+	 * @param int $post_id Queried post ID.
+	 */
+	function is_post_publicly_viewable( int $post_id ): bool {
+		unset( $post_id );
+
+		return (bool) ( $GLOBALS['npcink_ad_test_preview_target_public'] ?? true );
+	}
+}
+
 if ( ! function_exists( __NAMESPACE__ . '\\nocache_headers' ) ) {
 	/**
 	 * Record that preview responses disabled caching.

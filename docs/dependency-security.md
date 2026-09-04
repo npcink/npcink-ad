@@ -1,7 +1,7 @@
 # Development dependency security
 
 - Status: Current maintenance policy
-- Last reviewed: 2026-07-18
+- Last reviewed: 2026-09-04
 - Scope: Composer and Node.js development dependencies; the WordPress plugin
   release package contains neither dependency tree
 
@@ -46,3 +46,11 @@ An isolated 2026-07-18 verification reduced the development audit from 3
 critical, 44 high, 40 moderate, and 4 low dependency paths to 0 critical, 0
 high, 11 moderate, and 1 low. The remaining findings are transitive through the
 official WordPress development snapshot and are not included in the plugin ZIP.
+
+On 2026-09-04, the resolved tree was rechecked after adding exact overrides for
+`browserslist@4.28.7`, `fast-uri@3.1.6`, and `@puppeteer/browsers@3.0.6`.
+One successful `pnpm audit --audit-level=high` response reported 0 high and 0
+critical advisories (4 low and 19 moderate remain). The Puppeteer override removes
+the unpatched `extract-zip@2.0.1` path while preserving the WordPress build and
+test commands. Repeat the audit and full release gate on the tagged commit when
+the npm audit endpoint is responding consistently.

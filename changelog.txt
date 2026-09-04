@@ -1,5 +1,11 @@
 === Npcink Ad Changelog ===
 
+== 0.3.5 ==
+
+* Harden the release contract for WordPress 7.1 compatibility and dependency auditing.
+* Reject non-public preview targets and scope uninstall cleanup to Npcink Ad metadata.
+* Keep the single Promotion model, privacy boundary, and server-side delivery rules unchanged.
+
 == 0.3.4 ==
 
 * Exclude translation catalogs from the WordPress.org ZIP; translate.wordpress.org provides language packs after approval.

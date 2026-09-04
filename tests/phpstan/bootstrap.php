@@ -22,5 +22,5 @@ if ( ! defined( 'NPCINK_AD_URL' ) ) {
 }
 
 if ( ! defined( 'NPCINK_AD_VERSION' ) ) {
-	define( 'NPCINK_AD_VERSION', '0.3.4' );
+	define( 'NPCINK_AD_VERSION', '0.3.5' );
 }
